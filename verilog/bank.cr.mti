@@ -1,0 +1,78 @@
+{D:/collage project/verilog/up_down_counter.v} {1 {vlog -work work {D:/collage project/verilog/up_down_counter.v}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module up_down_counter
+-- Compiling module test
+
+Top level modules:
+	test
+
+} {} {}} {D:/collage project/verilog/flip_flop.v} {1 {vlog -work work {D:/collage project/verilog/flip_flop.v}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module flip_flop
+
+Top level modules:
+	flip_flop
+
+} {} {}} {D:/collage project/verilog/sevenSegments_decoder.v} {1 {vlog -work work {D:/collage project/verilog/sevenSegments_decoder.v}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module sevenSegments_decoder
+
+Top level modules:
+	sevenSegments_decoder
+
+} {} {}} {D:/collage project/verilog/t_count.v} {1 {vlog -work work {D:/collage project/verilog/t_count.v}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module t_count
+-- Compiling module t_count_dut
+
+Top level modules:
+	t_count_dut
+
+} {} {}} {D:/collage project/verilog/mid_project.v} {1 {vlog -work work {D:/collage project/verilog/mid_project.v}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module mid_project
+-- Compiling module test11
+
+Top level modules:
+	test11
+
+} {} {}} {D:/collage project/verilog/all.v} {1 {vlog -work work {D:/collage project/verilog/all.v}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module mid_project
+-- Compiling module up_down_counter
+-- Compiling module t_count
+-- Compiling module sevenSegments_decoder
+-- Compiling module rom
+-- Compiling module flag1
+-- Compiling module flip_flop
+-- Compiling module debounced_clk
+-- Compiling module clock_divider
+-- Compiling module test
+
+Top level modules:
+	test
+
+} {} {}} {D:/collage project/verilog/clock_divider.v} {1 {vlog -work work {D:/collage project/verilog/clock_divider.v}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module clock_divider
+-- Compiling module dd
+
+Top level modules:
+	clock_divider
+	dd
+
+} {} {}} {D:/collage project/verilog/debounced_clk.v} {1 {vlog -work work {D:/collage project/verilog/debounced_clk.v}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module debounced_clk
+
+Top level modules:
+	debounced_clk
+
+} {} {}} {D:/collage project/verilog/rom.v} {1 {vlog -work work {D:/collage project/verilog/rom.v}
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module rom
+
+Top level modules:
+	rom
+
+} {} {}}

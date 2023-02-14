@@ -1,0 +1,8 @@
+D:/verilog/and1.v {1 {vlog -work work D:/verilog/and1.v
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module and1
+
+Top level modules:
+	and1
+
+} {} {}}

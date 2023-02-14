@@ -1,0 +1,717 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>elfankosh</title>
+</head>
+<body>
+ 
+    <div class="main">
+
+        <header class="header1">
+            <a href="index.php" class="logo">EL FANKOSH</a>
+            <div>
+                <i class="fa-regular fa-cart-circle-plus"></i>
+                <?php 
+                if(isset($_SESSION['name']))
+                echo "
+                <a href='logout.php'>logout</a>
+                <a> hello,  $_SESSION[name]<?a>";
+                else
+                echo "<a href='login.html'>login</a>";
+                ?>
+                <a href="cart.php">cart <i class="fab fa-opencart"></i></a>
+                <a href="favorits.php">favorits <i class="fa-solid fa-heart"></i></a>
+                <a href="#">orders <i class="fa-solid fa-list-check"></i></a>
+                <a href="allproducts.php">my products</a>
+                
+            </div>
+        </header>
+        <header class="sec_header">
+            <ul>
+                <li><a href="#phones">phones</a></li>
+                <li><a href="#laps">laps</a></li>
+                <li><a href="#electronics">electronics</a></li>
+                <li><a href="#fashion">fashion</a></li>
+                <li><a href="#video_games">video games</a></li>
+                <li><a href="#acessory">acessory</a></li>
+                <li><a href="#furniture">furniture</a></li>
+                <li><a href="#kids_products">kids products</a></li>
+                <li><a href="#toys">toys</a></li>                                           
+            </ul>
+        </header>
+        <section class="welcomePage">            
+            <h1>welcome to our store</h1>
+            <p>You will find what you are looking for here</p>
+    </section>
+</div>
+<section class="products">    
+    <div class="products_bar" id="phones">
+        <h1>phone</h1>
+        <div>
+            <button class="i2" onclick="scrollr()"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+        <div class="cards snaps-inline">
+            
+            <?php
+
+                include('conf.php');
+                $result = mysqli_query($con ,"select * from products");
+                while($row = mysqli_fetch_array($result))
+                {
+                    if($row['category']==="phones")
+                    {                       
+                                echo "
+                                
+                                <div class='card'>
+                                <div class='card_img'>
+                                <img src='$row[img]' alt=''>
+                                </div>
+                                <div class='card_info'>
+                                <h5><!-- product name --> $row[name]</h5>
+                                <h5><!-- product price --> $row[price] EGP</h5>
+                                <p><!-- product description -->$row[description]</p> 
+                                <a href='addToCart.php?id=$row[id]' class='btn'>add to cart <i class='fab fa-opencart'></i> </a>   
+                                <form action='insert.php?id=$row[id]' method='post'>
+                                <button name = 'favo' href='#' class='fav'><i class='fa-regular fa-heart'></i></button>                                                                                    
+                                </form>
+                                </div>             
+                                </div>
+                        
+                                
+                                " ;
+                            
+                        
+                    }
+                }
+            
+            
+            ?>
+
+        </div>
+        <div>
+            <button class="i1" onclick="scrolll()"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="prosh">
+
+        <img class="prosh1" src="imgs/phone.jpeg" alt="">
+        <div class="prosh2">
+            <h4>more devices</h4>
+            <p>
+                if you want to show all devices and browse more you should visit us here
+            </p>
+            <a class="btnde" href="categorys/phones.php">all phones</a>
+        </div>
+    </div>
+    <div class="products_bar" id="laps">
+        <h1> lap</h1>
+        <div>
+            <button class="i2" onclick="scrollr()"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+        <div class="cards snaps-inline">
+            
+            <?php
+
+            include('conf.php');
+            $result = mysqli_query($con ,"select * from products");
+            while($row = mysqli_fetch_array($result))
+            {
+                if($row['category']==="laps")
+                {
+                    echo "
+                                
+                    <div class='card'>
+                    <div class='card_img'>
+                    <img src='$row[img]' alt=''>
+                    </div>
+                    <div class='card_info'>
+                    <h5><!-- product name --> $row[name]</h5>
+                    <h5><!-- product price --> $row[price] EGP</h5>
+                    <p><!-- product description -->$row[description]</p> 
+                    <a href='addToCart.php?id=$row[id]' class='btn'>add to cart <i class='fab fa-opencart'></i> </a>   
+                    <form action='insert.php?id=$row[id]' method='post'>
+                    <button name = 'favo' href='#' class='fav'><i class='fa-regular fa-heart'></i></button>                                                                                    
+                    </form>
+                    </div>             
+                    </div>
+            
+                    
+                    " ;
+                            }
+                        }
+                        
+                        
+                        ?>
+
+
+        </div>
+        <div>
+            <button class="i1" onclick="scrolll()"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="prosh">
+
+        <img class="prosh1" src="https://media.cnn.com/api/v1/images/stellar/prod/cheap-laptops-lead-alt-1600-900.jpg?c=16x9&q=h_270,w_480,c_fill" alt="">
+        <div class="prosh2">
+            <h4>more devices</h4>
+            <p>
+                if you want to show all devices and browse more you should visit us here
+            </p>
+            <a class="btnde" href="#">all laps</a>
+        </div>
+    </div>
+    <div class="products_bar" id="electronics">
+        <h1>electronics</h1>
+        <div>
+            <button class="i2" onclick="scrollr()"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+        <div class="cards snaps-inline">
+            
+            <?php
+
+            include('conf.php');
+            $result = mysqli_query($con ,"select * from products");
+            while($row = mysqli_fetch_array($result))
+            {
+                if($row['category']==="electronics")
+                {
+                    echo "
+                                
+                                <div class='card'>
+                                <div class='card_img'>
+                                <img src='$row[img]' alt=''>
+                                </div>
+                                <div class='card_info'>
+                                <h5><!-- product name --> $row[name]</h5>
+                                <h5><!-- product price --> $row[price] EGP</h5>
+                                <p><!-- product description -->$row[description]</p> 
+                                <a href='addToCart.php?id=$row[id]' class='btn'>add to cart <i class='fab fa-opencart'></i> </a>   
+                                <form action='insert.php?id=$row[id]' method='post'>
+                                <button name = 'favo' href='#' class='fav'><i class='fa-regular fa-heart'></i></button>                                                                                    
+                                </form>
+                                </div>             
+                                </div>
+                        
+                                
+                                " ;
+                            }
+                        }
+                        
+                        
+                        ?>
+
+
+        </div>
+        <div>
+            <button class="i1" onclick="scrolll()"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="prosh">
+
+        <img class="prosh1" src="https://www.industriall-union.org/sites/default/files/styles/large/public/uploads/images/Sector-Generic-Images/chiptest.jpg?itok=nlnWB_ys" alt="">
+        <div class="prosh2">
+            <h4>more devices</h4>
+            <p>
+                if you want to show all devices and browse more you should visit us here
+            </p>
+            <a class="btnde" href="#">all electronics</a>
+        </div>
+    </div>
+    <div class="products_bar" id="fashion">
+        <h1>fashion</h1>
+        <div>
+            <button class="i2" onclick="scrollr()"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+        <div class="cards snaps-inline">
+            
+            <?php
+
+            include('conf.php');
+            $result = mysqli_query($con ,"select * from products");
+            while($row = mysqli_fetch_array($result))
+            {
+                if($row['category']==="fashion")
+                {
+                    echo "
+                                
+                    <div class='card'>
+                    <div class='card_img'>
+                    <img src='$row[img]' alt=''>
+                    </div>
+                    <div class='card_info'>
+                    <h5><!-- product name --> $row[name]</h5>
+                    <h5><!-- product price --> $row[price] EGP</h5>
+                    <p><!-- product description -->$row[description]</p> 
+                    <a href='addToCart.php?id=$row[id]' class='btn'>add to cart <i class='fab fa-opencart'></i> </a>   
+                    <form action='insert.php?id=$row[id]' method='post'>
+                    <button name = 'favo' href='#' class='fav'><i class='fa-regular fa-heart'></i></button>                                                                                    
+                    </form>
+                    </div>             
+                    </div>
+            
+                    
+                    " ;
+                            }
+                        }
+                        
+                        
+                        ?>
+
+
+        </div>
+        <div>
+            <button class="i1" onclick="scrolll()"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="prosh">
+
+        <img class="prosh1" src="https://d2ggebswehwcjb.cloudfront.net/remote.axd/s3-ap-southeast-2.amazonaws.com/nzfm/Media/3974910/tofashioncover3final.jpg?width=1280&height=520&mode=crop" alt="">
+        <div class="prosh2">
+            <h4>more devices</h4>
+            <p>
+                if you want to show all devices and browse more you should visit us here
+            </p>
+            <a class="btnde" href="#">all fashion</a>
+        </div>
+    </div>
+    <div class="products_bar" id="video_games">
+        <h1> video games</h1>
+        <div>
+            <button class="i2" onclick="scrollr()"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+        <div class="cards snaps-inline">
+            
+            <?php
+
+            include('conf.php');
+            $result = mysqli_query($con ,"select * from products");
+            while($row = mysqli_fetch_array($result))
+            {
+                if($row['category']==="video_games")
+                {
+                    echo "
+                                
+                    <div class='card'>
+                    <div class='card_img'>
+                    <img src='$row[img]' alt=''>
+                    </div>
+                    <div class='card_info'>
+                    <h5><!-- product name --> $row[name]</h5>
+                    <h5><!-- product price --> $row[price] EGP</h5>
+                    <p><!-- product description -->$row[description]</p> 
+                    <a href='addToCart.php?id=$row[id]' class='btn'>add to cart <i class='fab fa-opencart'></i> </a>   
+                    <form action='insert.php?id=$row[id]' method='post'>
+                    <button name = 'favo' href='#' class='fav'><i class='fa-regular fa-heart'></i></button>                                                                                    
+                    </form>
+                    </div>             
+                    </div>
+            
+                    
+                    " ;
+                            }
+                        }
+                        
+                        
+                        ?>
+
+
+        </div>
+        <div>
+            <button class="i1" onclick="scrolll()"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="prosh">
+
+        <img class="prosh1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5rzHF4adDJxpX6FzAfImhc21MlTBi2Is8oA&usqp=CAU" alt="">
+        <div class="prosh2">
+            <h4>more devices</h4>
+            <p>
+                if you want to show all devices and browse more you should visit us here
+            </p>
+            <a class="btnde" href="#">all games</a>
+        </div>
+    </div>
+    <div class="products_bar" id="acessory">
+        <h1>accessory</h1>
+        <div>
+            <button class="i2" onclick="scrollr()"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+        <div class="cards snaps-inline">
+            
+            <?php
+
+            include('conf.php');
+            $result = mysqli_query($con ,"select * from products");
+            while($row = mysqli_fetch_array($result))
+            {
+                if($row['category']==="acessory")
+                {
+                    echo "
+                                
+                                <div class='card'>
+                                <div class='card_img'>
+                                <img src='$row[img]' alt=''>
+                                </div>
+                                <div class='card_info'>
+                                <h5><!-- product name --> $row[name]</h5>
+                                <h5><!-- product price --> $row[price] EGP</h5>
+                                <p><!-- product description -->$row[description]</p> 
+                                <a href='addToCart.php?id=$row[id]' class='btn'>add to cart <i class='fab fa-opencart'></i> </a>   
+                                <form action='insert.php?id=$row[id]' method='post'>
+                                <button name = 'favo' href='#' class='fav'><i class='fa-regular fa-heart'></i></button>                                                                                    
+                                </form>
+                                </div>             
+                                </div>
+                        
+                                
+                                " ;
+                            }
+                        }
+                        
+                        
+                        ?>
+
+
+        </div>
+        <div>
+            <button class="i1" onclick="scrolll()"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="prosh">
+
+        <img class="prosh1" src="data:image/jpeg;base64,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" data-deferred="1" class="rg_i Q4LuWd" jsname="Q4LuWd" width="284" height="178" alt="HD wallpaper: Breitling, Swiss Luxury Watches, Swiss wrist watches luxury |  Wallpaper Flare" data-iml="1928.8999999985099" data-atf="true"> 
+        <div class="prosh2">
+            <h4>more devices</h4>
+            <p>
+                if you want to show all devices and browse more you should visit us here
+            </p>
+            <a class="btnde" href="#">all acessory</a>
+        </div>
+    </div>
+    <div class="products_bar" id="furniture">
+        <h1>furniture</h1>
+        <div>
+            <button class="i2" onclick="scrollr()"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+        <div class="cards snaps-inline">
+            
+            <?php
+
+            include('conf.php');
+            $result = mysqli_query($con ,"select * from products");
+            while($row = mysqli_fetch_array($result))
+            {
+                if($row['category']==="furniture")
+                {
+                    echo "
+                                
+                    <div class='card'>
+                    <div class='card_img'>
+                    <img src='$row[img]' alt=''>
+                    </div>
+                    <div class='card_info'>
+                    <h5><!-- product name --> $row[name]</h5>
+                    <h5><!-- product price --> $row[price] EGP</h5>
+                    <p><!-- product description -->$row[description]</p> 
+                    <a href='addToCart.php?id=$row[id]' class='btn'>add to cart <i class='fab fa-opencart'></i> </a>   
+                    <form action='insert.php?id=$row[id]' method='post'>
+                    <button name = 'favo' href='#' class='fav'><i class='fa-regular fa-heart'></i></button>                                                                                    
+                    </form>
+                    </div>             
+                    </div>
+            
+                    
+                    " ;
+                            }
+                        }
+                        
+                        
+                        ?>
+
+
+        </div>
+        <div>
+            <button class="i1" onclick="scrolll()"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="prosh">
+
+        <img class="prosh1" src="https://thumbs.dreamstime.com/b/interior-living-room-wall-mock-up-background-modern-mockup-furniture-decor-168482519.jpg" alt="">
+        <div class="prosh2">
+            <h4>more devices</h4>
+            <p>
+                if you want to show all devices and browse more you should visit us here
+            </p>
+            <a class="btnde" href="#">all furniture</a>
+        </div>
+    </div>
+    <div class="products_bar" id="kids_products">
+        <h1>kids products</h1>
+        <div>
+            <button class="i2" onclick="scrollr()"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+        <div class="cards snaps-inline">
+            
+            <?php
+
+            include('conf.php');
+            $result = mysqli_query($con ,"select * from products");
+            while($row = mysqli_fetch_array($result))
+            {
+                if($row['category']==="kids_products")
+                {
+                    echo "
+                                
+                                <div class='card'>
+                                <div class='card_img'>
+                                <img src='$row[img]' alt=''>
+                                </div>
+                                <div class='card_info'>
+                                <h5><!-- product name --> $row[name]</h5>
+                                <h5><!-- product price --> $row[price] EGP</h5>
+                                <p><!-- product description -->$row[description]</p> 
+                                <a href='addToCart.php?id=$row[id]' class='btn'>add to cart <i class='fab fa-opencart'></i> </a>   
+                                <form action='insert.php?id=$row[id]' method='post'>
+                                <button name = 'favo' href='#' class='fav'><i class='fa-regular fa-heart'></i></button>                                                                                    
+                                </form>
+                                </div>             
+                                </div>
+                        
+                                
+                                " ;
+                            }
+                        }
+                        
+                        
+                        ?>
+
+
+        </div>
+        <div>
+            <button class="i1" onclick="scrolll()"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="prosh">
+
+        <img class="prosh1" src="https://i.etsystatic.com/25499622/r/il/cada6e/3587297435/il_fullxfull.3587297435_n5u1.jpg" alt="">
+        <div class="prosh2">
+            <h4>more devices</h4>
+            <p>
+                if you want to show all devices and browse more you should visit us here
+            </p>
+            <a class="btnde" href="#">all kids products</a>
+        </div>
+    </div>
+    <div class="products_bar" id="toys">
+        <h1>toys</h1>
+        <div>
+            <button class="i2" onclick="scrollr()"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+        <div class="cards snaps-inline">
+            
+            <?php
+
+            include('conf.php');
+            $result = mysqli_query($con ,"select * from products");
+            while($row = mysqli_fetch_array($result))
+            {
+                if($row['category']==="toys")
+                {
+                    echo "
+                                
+                    <div class='card'>
+                    <div class='card_img'>
+                    <img src='$row[img]' alt=''>
+                    </div>
+                    <div class='card_info'>
+                    <h5><!-- product name --> $row[name]</h5>
+                    <h5><!-- product price --> $row[price] EGP</h5>
+                    <p><!-- product description -->$row[description]</p> 
+                    <a href='addToCart.php?id=$row[id]' class='btn'>add to cart <i class='fab fa-opencart'></i> </a>   
+                    <form action='insert.php?id=$row[id]' method='post'>
+                    <button name = 'favo' href='#' class='fav'><i class='fa-regular fa-heart'></i></button>                                                                                    
+                    </form>
+                    </div>             
+                    </div>
+            
+                    
+                    " ;
+                            }
+                        }
+                        
+                        
+                        ?>
+
+
+        </div>
+        <div>
+            <button class="i1" onclick="scrolll()"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="prosh">
+
+        <img class="prosh1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt2dNyKtC-XHMjtP4ciIi4V4ZLnUNh7Dv3qA&usqp=CAU" alt="">
+        <div class="prosh2">
+            <h4>more devices</h4>
+            <p>
+                if you want to show all devices and browse more you should visit us here
+            </p>
+            <a class="btnde" href="#">all toys</a>
+        </div>
+    </div>
+        
+</section>
+<footer>
+    <div class="om">
+      <div class="volga"> 
+
+        <div class="title">
+    <a href="#">Get to Konw Us</a>
+    <a href="#">Shop with us</a>
+    <a href="#">Make Money with us</a>
+    <a href="#">let us help You</a>
+
+        </div>
+       </div> 
+    
+       <div class="opacity">
+
+
+       <div class="volga">
+       <div class="title">
+        <a href="#">Abou Alfankosh</a>
+        <a href="#">Your Account</a>
+        <a href="#">Advertise Your products</a>
+        <a href="#">Help</a>
+
+    </div>
+
+      </div>
+
+
+      <div class="volga">
+        <div class="title">
+         <a href="#">Alfankosh Science</a>
+         <a href="#" style="padding-left:85px ;">Your Address</a>
+         <a href="#" style="padding-left: 100px;">Your List</a>
+         <a href="#" style="padding-left : 180px ; ">Replacement</a>
+ 
+     </div>
+ 
+    </div>
+
+    </div>
+
+    </div>
+
+
+    <hr>
+
+    <div class="down">
+
+       <div class="simple">
+       <div class="ok">
+
+        <a href="#">Alfankosh Advertising</a>
+        <a href="#" style="opacity: 0.5;">find attract </a>
+
+    <div class="individual">
+        <a href="#">Audible</a>
+        <a href="#"  style="opacity: 0.5;">Download</a>
+        <a href="#" style="opacity: 0.5;">Audio</a>
+
+    </div>
+
+       </div>
+
+     
+
+       <div class="ok">
+
+        <a href="#">Sell on fankosh</a>
+        <a href="#" style="opacity: 0.5;">sell globally</a>
+
+    <div class="individual">
+        <a href="#">IMDb</a>
+        <a href="#" style="opacity: 0.5;">Movies , TV</a>
+        <a href="#" style="opacity: 0.5;">& Celebration</a>
+
+    </div>
+
+       </div>
+
+
+       <div class="ok">
+
+        <a href="#">Sell on fankosh</a>
+        <a href="#" style="opacity: 0.5;">sel golabally</a>
+
+    <div class="individual">
+        <a href="#">Alexa</a>
+        <a href="#" style="opacity: 0.5;">Actionable analytical</a>
+        <a href="#" style="opacity: 0.5;">foe web</a>
+
+    </div>
+
+       </div>
+
+
+
+
+       <div class="ok">
+
+        <a href="#">Good reads</a>
+        <a href="#" style="opacity: 0.5;">Book reviews</a>
+
+    <div class="individual">
+        <a href="#">Shopbop</a>
+        <a href="#" style="opacity: 0.5;">Designer</a>
+        <a href="#" style="opacity: 0.5;">Fashion Brands</a>
+
+    </div>
+
+       </div>
+    
+    
+    
+    </div>
+    
+    
+    <div class="finish">
+        <p>Copyright @Team_ALFANKOSHA</p>
+    </div>
+    
+    </div>
+
+    
+        
+
+
+</footer>
+
+
+</body>
+<script>
+    function scrolll(){
+        var left = document.querySelector(".cards");
+        left.scrollBy(350,0)
+    }
+    function scrollr(){
+        var right = document.querySelector(".cards");
+        right.scrollBy(-350,0)
+    }
+</script>
+    
+</html>

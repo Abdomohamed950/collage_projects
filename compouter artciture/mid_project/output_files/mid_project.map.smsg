@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at up_down_counter.v(6): always construct contains both blocking and non-blocking assignments File: D:/collage project/verilog/up_down_counter.v Line: 6
